@@ -77,4 +77,56 @@
             $("#libro").bind("turned", function(event, page, view) {
                 let nuevaMusica = "";
 
-                //
+                // --- LÓGICA DE AUDIOS ---
+                if (page >= 3 && page <= 5) {
+                    nuevaMusica = "1.mp3";
+                } else if (page == 6) {
+                    nuevaMusica = "2.mp3";
+                } else if (page >= 7 && page <= 10) { // Agrupado 3.mp3 (pág 7 a 10)
+                    nuevaMusica = "3.mp3";
+                } else if (page >= 11 && page <= 12) {
+                    nuevaMusica = "4.mp3";
+                } else if (page >= 13 && page <= 14) {
+                    nuevaMusica = "5.mp3";
+                } else if (page >= 15 && page <= 16) {
+                    nuevaMusica = "6.mp3";
+                } else if (page >= 17 && page <= 18) {
+                    nuevaMusica = "7.mp3";
+                } else if (page >= 19 && page <= 20) {
+                    nuevaMusica = "8.mp3";
+                } else if (page >= 21 && page <= 22) {
+                    nuevaMusica = "9.mp3";
+                } else if (page >= 23 && page <= 24) {
+                    nuevaMusica = "10.mp3";
+                } else if (page >= 25 && page <= 26) {
+                    nuevaMusica = "11.mp3";
+                } else if (page >= 27 && page <= 28) {
+                    nuevaMusica = "12.mp3";
+                } else if (page >= 29 && page <= 30) {
+                    nuevaMusica = "13.mp3";
+                } else if (page >= 31 && page <= 32) {
+                    nuevaMusica = "14.mp3";
+                } else if (page >= 33 && page <= 34) {
+                    nuevaMusica = "15.mp3";
+                } else if (page >= 35 && page <= 36) {
+                    nuevaMusica = "16.mp3";
+                }
+
+                // Cambiar audio solo si es necesario
+                if (nuevaMusica !== "") {
+                    let nombreArchivoActual = audio.src.split('/').pop();
+                    if (nombreArchivoActual !== nuevaMusica) {
+                        audio.src = nuevaMusica;
+                        audio.play().catch(e => console.log("Interacción requerida para sonido"));
+                    }
+                } else {
+                    // Opcional: pausar si se vuelve a la pág 1 o 2 donde no definiste música
+                    audio.pause();
+                    audio.src = "";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
