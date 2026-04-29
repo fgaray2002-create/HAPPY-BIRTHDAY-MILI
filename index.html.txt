@@ -1,65 +1,80 @@
-<script>
-    $(document).ready(function() {
-        let audio = document.getElementById('reproductor');
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Libro Interactivo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+    
+    <style>
+        body { background: #1a1a1a; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
+        #libro { width: 800px; height: 500px; }
+        .page { width: 400px; height: 500px; background-color: white; line-height: 0; }
+        .page img { width: 100%; height: 100%; object-fit: cover; }
+        .controles { margin-top: 20px; color: white; font-family: sans-serif; text-align: center; }
+    </style>
+</head>
+<body>
 
-        // Inicializar el Flipbook
-        $("#libro").turn({
-            width: 800,
-            height: 500,
-            autoCenter: true
-        });
+    <div id="libro">
+        <div class="page"><img src="img 1.jpg"></div>
+        <div class="page"><img src="img 2.jpg"></div>
+        <div class="page"><img src="img 3.jpg"></div>
+        <div class="page"><img src="img 4.jpg"></div>
+        <div class="page"><img src="img 5.jpg"></div>
+        <div class="page"><img src="img 6.jpg"></div>
+        <div class="page"><img src="img 7.jpg"></div>
+        <div class="page"><img src="img 8.jpg"></div>
+        <div class="page"><img src="img 9.jpg"></div>
+        <div class="page"><img src="img 10.jpg"></div>
+        <div class="page"><img src="img 11.jpg"></div>
+        <div class="page"><img src="img 12.jpg"></div>
+        <div class="page"><img src="img 13.jpg"></div>
+        <div class="page"><img src="img 14.jpg"></div>
+        <div class="page"><img src="img 15.jpg"></div>
+        <div class="page"><img src="img 16.jpg"></div>
+        <div class="page"><img src="img 17.jpg"></div>
+        <div class="page"><img src="img 18.jpg"></div>
+        <div class="page"><img src="img 19.jpg"></div> 
+        <div class="page"><img src="img 20.jpg"></div>
+        <div class="page"><img src="img 21.jpg"></div>
+        <div class="page"><img src="img 22.jpg"></div>
+        <div class="page"><img src="img 23.jpg"></div>
+        <div class="page"><img src="img 24.jpg"></div>
+        <div class="page"><img src="img 25.jpg"></div>
+        <div class="page"><img src="img 26.jpg"></div>
+        <div class="page"><img src="img 27.jpg"></div>
+        <div class="page"><img src="img 28.jpg"></div>
+        <div class="page"><img src="img 29.jpg"></div>
+        <div class="page"><img src="img 30.jpg"></div>
+        <div class="page"><img src="img 31.jpg"></div>
+        <div class="page"><img src="img 32.jpg"></div>
+        <div class="page"><img src="img 33.jpg"></div>
+        <div class="page"><img src="img 34.jpg"></div>
+        <div class="page"><img src="img 35.jpg"></div>
+        <div class="page"><img src="img 36.jpg"></div>
+    </div>
 
-        // Evento cuando cambia la página
-        $("#libro").bind("turned", function(event, page, view) {
-            let nuevaMusica = "";
+    <div class="controles">
+        Usa las esquinas para pasar las páginas o haz clic.<br>
+        <small>(Haz clic en cualquier parte para habilitar el sonido)</small>
+    </div>
 
-            // --- LÓGICA CORREGIDA ---
-            if (page >= 3 && page <= 5) {
-                nuevaMusica = "3-6.mp3";
-            } else if (page == 6) {
-                nuevaMusica = "2.mp3"; 
-            } else if (page >= 7 && page <= 8) {
-                nuevaMusica = "7-8.mp3";
-            } else if (page >= 9 && page <= 10) {
-                nuevaMusica = "3.mp3";
-            } else if (page >= 11 && page <= 12) {
-                nuevaMusica = "4.mp3";
-            } else if (page >= 13 && page <= 14) {
-                nuevaMusica = "5.mp3";
-            } else if (page >= 15 && page <= 16) {
-                nuevaMusica = "6.mp3";
-            } else if (page >= 17 && page <= 18) {
-                nuevaMusica = "7.mp3";
-            } else if (page >= 19 && page <= 20) {
-                nuevaMusica = "8.mp3";
-            } else if (page >= 21 && page <= 22) {
-                nuevaMusica = "9.mp3";
-            } else if (page >= 23 && page <= 24) {
-                nuevaMusica = "23-24.mp3";
-            } else if (page >= 25 && page <= 26) {
-                nuevaMusica = "11.mp3";
-            } else if (page >= 27 && page <= 28) {
-                nuevaMusica = "12.mp3";
-            } else if (page >= 29 && page <= 30) {
-                nuevaMusica = "13.mp3";
-            } else if (page >= 31 && page <= 32) {
-                nuevaMusica = "14.mp3";
-            } else if (page >= 33 && page <= 34) {
-                nuevaMusica = "15.mp3";
-            } else if (page >= 35 && page <= 36) {
-                nuevaMusica = "16.mp3";
-            }
+    <audio id="reproductor" loop></audio>
 
-            // Solo cambia si hay una canción definida y es distinta a la actual
-            if (nuevaMusica !== "") {
-                let nombreArchivoActual = audio.src.split('/').pop();
-                if (nombreArchivoActual !== nuevaMusica) {
-                    audio.src = nuevaMusica;
-                    audio.play().catch(e => {
-                        console.log("El navegador bloqueó el audio. Haz clic en la página primero.");
-                    });
-                }
-            }
-        });
-    });
-</script>
+    <script>
+        $(document).ready(function() {
+            let audio = document.getElementById('reproductor');
+
+            // Inicializar el Flipbook
+            $("#libro").turn({
+                width: 800,
+                height: 500,
+                autoCenter: true
+            });
+
+            // Evento cuando cambia la página
+            $("#libro").bind("turned", function(event, page, view) {
+                let nuevaMusica = "";
+
+                //
