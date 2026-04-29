@@ -15,11 +15,11 @@
 
             // --- LÓGICA CORREGIDA ---
             if (page >= 3 && page <= 5) {
-                nuevaMusica = "1.mp3";
+                nuevaMusica = "3-6.mp3";
             } else if (page == 6) {
                 nuevaMusica = "2.mp3"; 
             } else if (page >= 7 && page <= 8) {
-                nuevaMusica = "3.mp3";
+                nuevaMusica = "7-8.mp3";
             } else if (page >= 9 && page <= 10) {
                 nuevaMusica = "3.mp3";
             } else if (page >= 11 && page <= 12) {
@@ -35,7 +35,7 @@
             } else if (page >= 21 && page <= 22) {
                 nuevaMusica = "9.mp3";
             } else if (page >= 23 && page <= 24) {
-                nuevaMusica = "10.mp3";
+                nuevaMusica = "23-24.mp3";
             } else if (page >= 25 && page <= 26) {
                 nuevaMusica = "11.mp3";
             } else if (page >= 27 && page <= 28) {
